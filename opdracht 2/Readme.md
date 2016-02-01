@@ -3,9 +3,10 @@ Voor- en nadelen JavaScript libraries/frameworks onderzoeken
 
 ## Inleiding
 
-Javascript libraries en frameworks kunnen je leven makkelijker, maar soms ook moeilijker maken. Je kunt je website hiermee makkelijk uitbreiden door de code van een ander in je website te integreren. Echter is dit niet zonder haken en ogen. Hieronder laat ik een aantal punten zien met de voordelen en nadelen van libraries en frameworks.  
+Javascript libraries en frameworks kunnen je leven makkelijker, maar soms ook moeilijker maken. Je kunt je website hiermee makkelijk uitbreiden door de code van een ander in je website te integreren. Echter is dit niet zonder haken en ogen. Hieronder laat ik een aantal punten zien met de voordelen en nadelen van libraries en frameworks. 
 
-## Pro's
+
+## Voordelen
 
 ### Werk
 
@@ -16,7 +17,7 @@ Je gebruikt in principe code die al voorgeschreven is om een bepaald doel te ber
 Doordat de meeste libraries en frameworks gratis en open source zijn werken er meerdere mensen aan die hun bijdrage leveren. Van de meeste is het doel hetzelfde: alle lekken dichten en de library veilig maken. Hierdoor kan een library of framework veiliger zijn om te gebruiken dan je eigen creatie.
 
 
-## Cons
+## Nadelen
 
 ### Aanpassingen zijn lastig
 

@@ -14,6 +14,8 @@ Filetree
   * script.js
 * Opdracht 2
   * Opdracht 2 Readme
+* Opdracht 3
+  * Opdracht 3 Readme
   
 
 Changelog
