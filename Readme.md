@@ -1,8 +1,8 @@
 Web App From Scratch
 ====================
 
-**Emiel Zuurbier**
-*500661361*
+**Emiel Zuurbier**  
+*500661361*  
 
 Changelog
 ---------
