@@ -31,4 +31,5 @@ Zoekmachines kunnen niet altijd even efficient met single page web apps omgaan. 
 ## Bronnen
 
 - https://www.quora.com/What-are-the-pros-and-cons-of-changing-a-multi-page-website-into-a-single-page-website
-- https://www.apicasystem.com/blog/speed-up-the-pros-and-cons-of-single-page-sites/
+- https://www.apicasystem.com/blog/speed-up-the-pros-and-cons-of-single-page-sites/  
+- http://www.dialogtech.com/blog/technically-speaking/technically-speaking-the-pros-and-cons-of-single-page-applications-spas
