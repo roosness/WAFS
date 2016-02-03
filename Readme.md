@@ -16,6 +16,17 @@ Filetree
   * Opdracht 2 Readme
 * Opdracht 3
   * Opdracht 3 Readme
+* Opdracht 4  
+  * cmdgeo-0.1.js
+  * cmdgeo-0.2.js
+  * cmdgeo-0.3.js
+* Opdracht 5
+  * index.html
+  * static
+    * script
+      * script.js
+    * style
+      * style.css
   
 
 Changelog
