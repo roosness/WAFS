@@ -34,15 +34,15 @@
         position: {
             current: false,
             currentMarker: false,
-            customDebuggin: false,
-            debugId: false,
             map: false,
             interval: false,
             intervalCounter: false,
             updateMap: false
         },
         locatieRij: [],
-        markerRij: []
+        markerRij: [],
+        customDebuggin: false,
+        debugId: false,
     };
 
     // Event functies - bron: http://www.nczonline.net/blog/2010/03/09/custom-events-in-javascript/ Copyright (c) 2010 Nicholas C. Zakas. All rights reserved. MIT License
