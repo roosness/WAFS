@@ -18,16 +18,22 @@
             intervalCounter: false,
             updateMap: false
         },
-        locatieRij: [],
+        locationRow: [],
         markerRow: [],
-        customDebuggin: false,
-        debugId: false
     },
+        
+        util = {
+            customDebuggin: false,
+            debugId: false,
+            intCheck: function isNumber(n) {
+                return !isNaN(parseFloat(n)) && isFinite(n);
+            }
+        }
     
     // DEBUGGGER
         debug = {
             message: function (message) {
-                if (conf.customDebugging && conf.debugId) {
+                if (util.customDebuggingg && util.debugId) {
                     if (document.getElementById('debugId').innerHTML) {
                         console.log(message);
                     }
@@ -37,8 +43,8 @@
                 debug.message('geo.js error ' + code + ': ' + message);
             },
             setCustomDebugging: function (debugId) {
-                conf.debugId = this.debugId;
-                conf.customDebuggin = true;
+                util.debugId = this.debugId;
+                util.customDebuggingg = true;
             }
         },
     
@@ -69,8 +75,14 @@
         },
         fire: function (a) {
             if (typeof a === "string") {
+                a.target || (a.target = this);
                 a = {type: a};
-//                a.target || (a.target = this);
+                throw Error("Event object missing 'type' property.");
+            }
+            if (this._listeners[a.type] instanceof Array) {
+                for (var c = this._listeners[a.type], b = 0, d = c.length; b < d; b += 1) {
+                    c[b].call(this, a)
+                }
             }
         }
     };
@@ -99,7 +111,7 @@
         updatePosition: function () {
             conf.position.intervalCounter += 1;
             geo_position_js.getCurrentPosition(map.setPosition, debug.geoErrorHandler, {
-                enableHighAccuracy: true;
+                enableHighAccuracy: true
             });
         },
         setPosition: function (position) {
@@ -119,7 +131,7 @@
                     if (window.location != locaties[i][0] && localStorage[locaties[i][0] === false]) {
                         try {
                             if (localStorage[locaties[i][0]] === false) {
-                                localStorage[locaties[i][0]] = 1 
+                                localStorage[locaties[i][0]] = 1; 
                             } else {
                                 localStorage[locaties[i][0]] += 1;
                             }
@@ -140,7 +152,69 @@
         }
     };
     
-    var generateMap = function ()
+    function generateMap(myOptions, canvasId) {
+        var routeList = [];
+        var markerLatLng = new google.maps.LatLng(locaties[i][3], locaties[i][4]);
+        debug.message("Genereer een Google Maps kaart en toon deze in #" + canvasId);
+        map = new google.maps.Map(document.getElementById(canvasId), myOptions);
+        debug.message("Locaties intekenen, tourtype is: " + tourType);
+        
+        for (var i = 0; i < locaties.length; i++) {
+            try {
+                if (localStorage.visited === undefined || isNumber(localStorage.visited)) {
+                    localStorage[locaties[i][0]] = false
+                } else {
+                    null;
+                }
+            } catch (error) {
+                debugMessage("Localstorage kan niet aangesproken worden: "+error);
+            }
+            var markerLatLng = new google.maps.LatLng(locaties[i][3], locaties[i][4]);
+            routeList.push(markerLatLng);
+
+            conf.markerRow[i] = {};
+            for (var attr in locatieMarker) {
+                conf.markerRow[i][attr] = locatieMarker[attr];
+            }
+            conf.markerRow[i].scale = locaties[i][2]/3;
+
+            var marker = new google.maps.Marker({
+                position: markerLatLng,
+                map: map,
+                icon: conf.markerRow[i],
+                title: locaties[i][0]
+            });
+        }
+            
+        if (tourType == conf.linear) {
+        // Trek lijnen tussen de punten
+            debugMessage("Route intekenen");
+            var route = new google.maps.Polyline({
+                clickable: false,
+                map: map,
+                path: routeList,
+                strokeColor: 'Black',
+                strokeOpacity: .6,
+                strokeWeight: 3    
+            });
+        }
+
+        conf.position.currentMarker = new google.maps.Marker({
+            position: kaartOpties.center,
+            map: map,
+            icon: positieMarker,
+            title: 'U bevindt zich hier'
+        });
+
+        ET.addListener(POSITION_UPDATED, update_positie);
+    }
+    
+    function updatePositie(event){
+        // use currentPosition to center the map
+        var newPos = new google.maps.LatLng(currentPosition.coords.latitude, currentPosition.coords.longitude);
+        map.setCenter(newPos);
+        conf.position.currentMarker.setPosition(newPos);
+    }
     
     
 }());
