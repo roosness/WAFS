@@ -7,11 +7,6 @@ Web App From Scratch
 Filetree
 --------
 
-* index.html
-* style
-  * style.css
-* script
-  * script.js
 * Opdracht 2
   * Opdracht 2 Readme
 * Opdracht 3
