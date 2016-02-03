@@ -60,7 +60,7 @@ header nav ul li a {
     font-weight: 300;
 }
 
-header nav ul li a.active {
+header nav ul li a:active, header nav ul li a:focus {
     color: #f5f5f5;
 }
 
@@ -75,7 +75,12 @@ main {
 
 section {
     display: none;
+    flex-direction: column;
     color: #f7f7f7;
+}
+
+section ul {
+    padding-left: 20px;
 }
 
 section.active {

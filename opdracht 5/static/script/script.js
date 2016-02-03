@@ -13,6 +13,7 @@
         
         routes = {
             init: function () {
+                window.location.hash = "1";
                 window.addEventListener('hashchange', function (event) {
                     var route = window.location.hash;
                     sections.toggle(route);
@@ -23,20 +24,14 @@
         sections = {
             toggle: function (route) {
                 var section = document.querySelectorAll('section'),
-                    links = document.querySelectorAll('nav ul li a');
-                
+                    links = document.querySelectorAll('nav ul li a'),
+                    routeSplit = route.split('#');
+                                
                 Array.prototype.forEach.call(section, function (section) {
                     section.classList.remove('active');
                 });
                 
-//                for (var i = 0; i < section.length; i += 1) {
-//                    section[i].classList.remove('active');
-//                    links[i].classList.remove('active');
-//                    console.log(links);
-//                }
-                
-                console.log(section);
-                document.getElementById(route).classList.add('active');
+                document.getElementById(routeSplit[1]).classList.add('active');
             }
         };
     
