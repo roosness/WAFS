@@ -2,7 +2,6 @@ Web App From Scratch
 ====================
 
 **Emiel Zuurbier**  
-*500661361*
 
 Filetree
 --------
